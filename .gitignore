@@ -1,0 +1,14 @@
+# Copias de seguridad de trabajo
+*.bak
+*.bak2
+
+# Paquetes generados
+*.zip
+
+# Páginas vacías pendientes de contenido
+pages/
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
