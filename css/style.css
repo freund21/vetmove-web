@@ -2481,3 +2481,25 @@ h4 {
         max-width: 100%;
     }
 }
+
+
+/* =========================================================
+   29. FOTO EN BLANCO Y NEGRO
+
+   Su archivo real son 720px: una ampliación posterior a 1540px
+   no añadió detalle, solo peso. Por eso se limita a 430px de
+   ancho, por debajo de donde empezaría a verse blanda.
+========================================================= */
+
+.photo-band-bn {
+    max-width: 430px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .28);
+}
+
+
+@media (max-width: 700px) {
+
+    .photo-band-bn {
+        max-width: 100%;
+    }
+}
