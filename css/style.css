@@ -990,13 +990,14 @@ h4 {
 
 .about-image {
     height: min(420px, 55vh);
-    border-radius: 150px 28px 28px 28px;
+    border-radius: 28px 150px 28px 28px;
     box-shadow: var(--shadow-md);
 }
 
 .about-label {
     position: absolute;
-    bottom: 28px;
+    top: 28px;
+    bottom: auto;
     left: -34px;
     background: var(--cream);
     border-left: 4px solid var(--gold);
@@ -1482,7 +1483,8 @@ h4 {
 
     .about-label {
         left: 16px;
-        bottom: 16px;
+        top: 16px;
+        bottom: auto;
     }
 
     .logo img,
