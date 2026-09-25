@@ -12,3 +12,6 @@ pages/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Estado local de la herramienta de Netlify
+.netlify/
