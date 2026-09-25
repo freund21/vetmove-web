@@ -1017,6 +1017,20 @@ h4 {
     color: var(--muted);
 }
 
+/* En móvil, la etiqueta queda debajo para no tapar la cara. */
+@media (max-width: 768px) {
+    .about-image-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .about-label {
+        position: static;
+        width: 100%;
+        margin-top: 12px;
+    }
+}
+
 
 /* =========================================================
    15. FAQ
