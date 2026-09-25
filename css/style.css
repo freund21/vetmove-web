@@ -2503,3 +2503,137 @@ h4 {
         max-width: 100%;
     }
 }
+
+
+/* =========================================================
+   30. PORTADA A SANGRE
+
+   El texto sobre crema a la izquierda y la foto ocupando la
+   mitad derecha hasta el borde de la pantalla, subiendo por
+   detrás de la cabecera. La barra no se toca: sigue fija y
+   transparente, así que se superpone a la foto.
+========================================================= */
+
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 620px;
+    padding: 130px 0 80px;
+    overflow: hidden;
+}
+
+/* El contenedor deja de repartir en dos columnas: la foto ya no
+   vive dentro de la rejilla, sino sobre la sección entera. */
+/* Sin position:relative a propósito: si lo lleva, pasa a ser el
+   marco de referencia de la foto y esta ya no puede salirse del
+   contenedor. El z-index funciona igual por ser hijo de un flex. */
+.hero-grid {
+    display: block;
+    z-index: 2;
+}
+
+/* El panel de la foto arranca en el 44% del ancho de pantalla.
+   La columna de texto se queda por debajo de eso para no meterse
+   debajo de la imagen. */
+.hero-content {
+    max-width: 40%;
+    padding-right: 40px;
+}
+
+.hero-figure {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 56%;
+    max-width: none;
+    margin: 0;
+    z-index: 1;
+}
+
+.hero-image {
+    display: block;
+    height: 100%;
+    aspect-ratio: auto;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 62% center;
+}
+
+/* Difuminado que funde la foto con el crema de la izquierda */
+.hero-figure::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 180px;
+    background: linear-gradient(to right, var(--cream), rgba(246, 242, 234, 0));
+    pointer-events: none;
+}
+
+/* El pie de foto repetía literalmente la frase que ya está en el
+   titular de al lado, así que en esta maqueta sobra. */
+.hero-figure figcaption {
+    display: none;
+}
+
+
+@media (max-width: 1100px) {
+
+    .hero {
+        display: block;
+        min-height: 0;
+        padding: 120px 0 70px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        padding-right: 0;
+    }
+
+    .hero-figure {
+        position: relative;
+        width: calc(100% + 10vw);
+        margin: 44px -5vw 0;
+        height: 380px;
+    }
+
+    .hero-figure::after {
+        display: none;
+    }
+
+    .hero-image img {
+        object-position: center 60%;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .hero {
+        padding: 110px 0 50px;
+    }
+
+    .hero-figure {
+        height: 300px;
+        margin-top: 36px;
+    }
+}
+
+/* La columna de la portada es ahora más estrecha: los tres datos
+   caben en una fila si se les recorta la separación. */
+.hero-info {
+    gap: 22px 24px;
+}
+
+.hero-info span {
+    font-size: 12px;
+}
