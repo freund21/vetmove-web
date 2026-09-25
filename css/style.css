@@ -2223,22 +2223,26 @@ h4 {
 
 /* =========================================================
    27. FOTOS DE SECCIÓN
+
+   Criterio: ninguna foto se recorta. Cada una se muestra con
+   su proporción real (altura automática), así que nunca se
+   corta una cara ni unas patas. El tamaño se controla con el
+   ancho máximo, no forzando proporciones.
 ========================================================= */
 
-/* Marco común a todas las fotos repartidas por la web */
 .section-photo {
     position: relative;
     overflow: hidden;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-md);
     background: var(--teal-mist);
+    line-height: 0;
 }
 
 .section-photo img {
     display: block;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
     transition: transform .8s var(--ease);
 }
 
@@ -2246,24 +2250,37 @@ h4 {
     transform: scale(1.03);
 }
 
-/* Banda ancha de cierre de sección */
+/* Las fotos que ya tenía la web: también enteras */
+.home-care-image,
+.about-image {
+    height: auto;
+    aspect-ratio: auto;
+}
+
+.home-care-image img,
+.about-image img {
+    height: auto;
+}
+
+
+/* --- Banda de cierre de sección: centrada y contenida --- */
+
 .photo-band {
-    margin-top: 60px;
-    aspect-ratio: 16 / 9;
+    margin: 60px auto 0;
+    max-width: 660px;
 }
 
 
 /* --- Intro: la foto entra como tercera columna --- */
 
 .intro-grid {
-    grid-template-columns: 110px minmax(0, 1.1fr) minmax(0, .9fr);
+    grid-template-columns: 110px minmax(0, 1.15fr) minmax(0, .85fr);
     gap: 0 56px;
     align-items: start;
 }
 
 .intro-photo {
-    aspect-ratio: 3 / 4;
-    border-radius: var(--radius-md) var(--radius-md) 120px var(--radius-md);
+    border-radius: var(--radius-md) var(--radius-md) 60px var(--radius-md);
 }
 
 
@@ -2271,18 +2288,16 @@ h4 {
 
 .clinic-block {
     display: grid;
-    grid-template-columns: .85fr 1.15fr;
+    grid-template-columns: .8fr 1.2fr;
     gap: 34px;
-    align-items: stretch;
+    align-items: start;
     margin-top: 24px;
 }
 
 .clinic-photo {
-    aspect-ratio: 4 / 5;
-    border-radius: 120px var(--radius-md) var(--radius-md) var(--radius-md);
+    border-radius: 60px var(--radius-md) var(--radius-md) var(--radius-md);
 }
 
-/* La caja de texto ya no necesita su margen superior dentro de la rejilla */
 .clinic-block .clinic-note {
     margin-top: 0;
 }
@@ -2292,14 +2307,13 @@ h4 {
 
 .tracking-top {
     display: grid;
-    grid-template-columns: 1.25fr .75fr;
+    grid-template-columns: 1.3fr .7fr;
     gap: 50px;
     align-items: center;
 }
 
 .tracking-photo {
-    aspect-ratio: 4 / 5;
-    border-radius: var(--radius-md) 120px var(--radius-md) var(--radius-md);
+    border-radius: var(--radius-md) 60px var(--radius-md) var(--radius-md);
 }
 
 
@@ -2307,17 +2321,8 @@ h4 {
 
 .faq-photo {
     margin-top: 34px;
-    aspect-ratio: 1 / 1;
-    max-width: 320px;
-    border-radius: 120px var(--radius-md) var(--radius-md) var(--radius-md);
-}
-
-
-/* --- Sobre mí: la foto del jardín es apaisada, el marco se adapta --- */
-
-.about-image {
-    aspect-ratio: 4 / 3;
-    height: auto;
+    max-width: 300px;
+    border-radius: 60px var(--radius-md) var(--radius-md) var(--radius-md);
 }
 
 
@@ -2328,9 +2333,13 @@ h4 {
         gap: 34px;
     }
 
-    .intro-photo {
-        aspect-ratio: 16 / 10;
-        max-width: 560px;
+    .intro-photo,
+    .clinic-photo,
+    .tracking-photo,
+    .photo-band {
+        max-width: 520px;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .clinic-block,
@@ -2339,18 +2348,8 @@ h4 {
         gap: 28px;
     }
 
-    .clinic-photo,
-    .tracking-photo {
-        aspect-ratio: 16 / 10;
-    }
-
     .faq-photo {
-        max-width: 100%;
-        aspect-ratio: 16 / 10;
-    }
-
-    .about-image {
-        aspect-ratio: 16 / 10;
+        max-width: 280px;
     }
 }
 
@@ -2359,14 +2358,13 @@ h4 {
 
     .photo-band {
         margin-top: 40px;
-        aspect-ratio: 4 / 3;
     }
 
     .intro-photo,
     .clinic-photo,
     .tracking-photo,
-    .faq-photo,
-    .about-image {
-        aspect-ratio: 4 / 3;
+    .photo-band,
+    .faq-photo {
+        max-width: 100%;
     }
 }
