@@ -1188,8 +1188,24 @@ h4 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 44px;
-    min-height: 44px;
+    position: relative;
+    width: 17px;
+    min-width: 0;
+    min-height: 0;
+    flex-shrink: 0;
+}
+
+/* El área para pulsar con el dedo sigue siendo de 44px, pero se
+   proyecta sin ocupar sitio: así el icono queda alineado con los
+   del correo y el Instagram, que miden 17px. */
+.footer-social::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    transform: translate(-50%, -50%);
 }
 
 .footer-instagram {
