@@ -575,7 +575,7 @@ h4 {
 
 .intro-grid {
     display: grid;
-    grid-template-columns: 110px 1fr;
+    grid-template-columns: 1fr;
 }
 
 .intro-content {
@@ -631,7 +631,7 @@ h4 {
     border-color: var(--teal);
     color: #fff;
     display: grid;
-    grid-template-columns: auto auto 1fr auto;
+    grid-template-columns: auto auto 1fr;
     align-items: center;
     gap: 26px;
     padding: 32px 36px;
@@ -645,7 +645,7 @@ h4 {
 }
 
 .service-icon {
-    margin-top: 48px;
+    margin-top: 0;
     display: grid;
     place-items: center;
     width: 50px;
@@ -739,8 +739,8 @@ h4 {
 
 .benefit {
     display: grid;
-    grid-template-columns: 44px 1fr;
-    gap: 18px;
+    grid-template-columns: 1fr;
+    gap: 6px;
     padding-top: 22px;
     border-top: 1px solid rgba(255, 255, 255, .16);
 }
@@ -801,7 +801,7 @@ h4 {
 }
 
 .process-item h3 {
-    margin-top: 60px;
+    margin-top: 0;
     font-size: 20px;
     font-weight: 500;
 }
@@ -2276,7 +2276,7 @@ h4 {
 /* --- Intro: la foto entra como tercera columna --- */
 
 .intro-grid {
-    grid-template-columns: 110px minmax(0, 1.15fr) minmax(0, .85fr);
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
     gap: 0 56px;
     align-items: start;
 }
