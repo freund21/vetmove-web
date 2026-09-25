@@ -2708,3 +2708,81 @@ h4 {
         gap: 22px;
     }
 }
+
+
+/* =========================================================
+   32. UNA FORMA DIFERENTE
+
+   Eran cuatro piezas apiladas -titular, fila de cajas, foto
+   suelta y frase-, cada una a todo el ancho y con aire entre
+   ellas. Pasa a dos columnas: la foto a la izquierda y el
+   texto con las cajas a la derecha.
+========================================================= */
+
+.values-grid {
+    display: grid;
+    grid-template-columns: .95fr 1.05fr;
+    gap: 62px;
+    align-items: center;
+}
+
+.values-photo {
+    border-radius: var(--radius-md) var(--radius-md) 120px var(--radius-md);
+}
+
+.values-content h2 {
+    margin-top: 6px;
+    font-size: clamp(32px, 4vw, 54px);
+    line-height: 1.06;
+    letter-spacing: -1.5px;
+}
+
+.values-content .values-intro {
+    margin-top: 18px;
+    color: var(--muted);
+    font-size: 16px;
+}
+
+/* Las cuatro cajas, en dos filas de dos */
+.values-content .values-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 32px;
+}
+
+.values-content .values-list li {
+    padding: 22px 24px;
+    font-size: 20px;
+}
+
+.values-content .lead-claim {
+    margin-top: 32px;
+    max-width: 46ch;
+    font-size: clamp(16px, 1.8vw, 19px);
+}
+
+
+@media (max-width: 1100px) {
+
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 38px;
+    }
+
+    .values-photo {
+        max-width: 520px;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .values-photo {
+        max-width: 100%;
+        border-radius: var(--radius-md) var(--radius-md) 70px var(--radius-md);
+    }
+
+    .values-content .values-list {
+        grid-template-columns: 1fr;
+    }
+}
