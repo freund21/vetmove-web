@@ -2269,7 +2269,13 @@ h4 {
 
 .photo-band {
     margin: 60px auto 0;
-    max-width: 660px;
+    max-width: 560px;
+}
+
+/* Cuando la banda lleva una foto vertical, se estrecha más:
+   si no, una vertical a 560px de ancho mide casi 700px de alto. */
+.photo-band-vertical {
+    max-width: 400px;
 }
 
 
@@ -2355,6 +2361,11 @@ h4 {
 
     .faq-photo {
         max-width: 280px;
+    }
+
+    /* La banda vertical no debe crecer hasta 520px: sería demasiado alta */
+    .photo-band-vertical {
+        max-width: 380px;
     }
 }
 
