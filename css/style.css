@@ -2405,3 +2405,79 @@ h4 {
         max-width: 100%;
     }
 }
+
+
+/* =========================================================
+   28. VETERINARIA EN CASA
+
+   Antes eran cuatro piezas sueltas: el titular a la izquierda,
+   un párrafo pegado abajo a la derecha, la frase destacada sola
+   y la foto centrada. Ninguna compartía columna con otra.
+   Ahora es un único bloque de dos columnas.
+========================================================= */
+
+.home-intro-grid {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 64px;
+    align-items: center;
+}
+
+.home-intro-texto h2 {
+    margin-top: 6px;
+    font-size: clamp(32px, 4vw, 54px);
+    line-height: 1.06;
+    letter-spacing: -1.5px;
+    max-width: 18ch;
+}
+
+.home-intro-texto > p {
+    margin-top: 26px;
+    max-width: 54ch;
+    color: var(--muted);
+    font-size: 16px;
+}
+
+.home-intro-texto .lead-claim {
+    margin-top: 30px;
+    max-width: 34ch;
+    font-size: clamp(19px, 2.2vw, 26px);
+}
+
+.home-intro-photo {
+    justify-self: end;
+    width: 100%;
+    max-width: 430px;
+    border-radius: var(--radius-md) 120px var(--radius-md) var(--radius-md);
+}
+
+
+@media (max-width: 1100px) {
+
+    .home-intro-grid {
+        grid-template-columns: 1fr;
+        gap: 38px;
+    }
+
+    .home-intro-photo {
+        justify-self: start;
+        max-width: 480px;
+    }
+
+    .home-intro-texto h2 {
+        max-width: 22ch;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .home-intro-photo {
+        max-width: 100%;
+        border-radius: var(--radius-md) 70px var(--radius-md) var(--radius-md);
+    }
+
+    .home-intro-texto .lead-claim {
+        max-width: 100%;
+    }
+}
