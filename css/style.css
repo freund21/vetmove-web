@@ -2353,7 +2353,7 @@ h4 {
 
 .faq-photo {
     margin-top: 34px;
-    max-width: 400px;
+    max-width: 300px;
     border-radius: 60px var(--radius-md) var(--radius-md) var(--radius-md);
 }
 
