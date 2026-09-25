@@ -2222,85 +2222,151 @@ h4 {
 
 
 /* =========================================================
-   27. GALERÍA
+   27. FOTOS DE SECCIÓN
 ========================================================= */
 
-.gallery {
-    background: var(--cream);
-}
-
-.gallery-head {
-    max-width: 760px;
-    margin-bottom: 54px;
-}
-
-.gallery-head h2 {
-    font-size: clamp(32px, 4.2vw, 58px);
-    line-height: 1.05;
-    letter-spacing: -1.5px;
-}
-
-.gallery-head h2 span {
-    display: block;
-    color: var(--gold);
-    font-style: italic;
-    font-weight: 300;
-}
-
-.gallery-head > p {
-    margin-top: 20px;
-    max-width: 52ch;
-    color: var(--muted);
-    font-size: 16px;
-}
-
-/* Mosaico: cada foto conserva su proporción, sin recortes */
-.gallery-grid {
-    column-count: 3;
-    column-gap: 18px;
-}
-
-.gallery-grid figure {
-    break-inside: avoid;
-    margin: 0 0 18px;
-    border-radius: var(--radius-md);
+/* Marco común a todas las fotos repartidas por la web */
+.section-photo {
+    position: relative;
     overflow: hidden;
-    box-shadow: var(--shadow-sm);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
     background: var(--teal-mist);
 }
 
-.gallery-grid img {
+.section-photo img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     transition: transform .8s var(--ease);
 }
 
-.gallery-grid figure:hover img {
-    transform: scale(1.04);
+.section-photo:hover img {
+    transform: scale(1.03);
+}
+
+/* Banda ancha de cierre de sección */
+.photo-band {
+    margin-top: 60px;
+    aspect-ratio: 16 / 9;
+}
+
+
+/* --- Intro: la foto entra como tercera columna --- */
+
+.intro-grid {
+    grid-template-columns: 110px minmax(0, 1.1fr) minmax(0, .9fr);
+    gap: 0 56px;
+    align-items: start;
+}
+
+.intro-photo {
+    aspect-ratio: 3 / 4;
+    border-radius: var(--radius-md) var(--radius-md) 120px var(--radius-md);
+}
+
+
+/* --- Servicios: foto junto a "¿Y si necesita una clínica?" --- */
+
+.clinic-block {
+    display: grid;
+    grid-template-columns: .85fr 1.15fr;
+    gap: 34px;
+    align-items: stretch;
+    margin-top: 24px;
+}
+
+.clinic-photo {
+    aspect-ratio: 4 / 5;
+    border-radius: 120px var(--radius-md) var(--radius-md) var(--radius-md);
+}
+
+/* La caja de texto ya no necesita su margen superior dentro de la rejilla */
+.clinic-block .clinic-note {
+    margin-top: 0;
+}
+
+
+/* --- Seguimiento: retrato junto al titular --- */
+
+.tracking-top {
+    display: grid;
+    grid-template-columns: 1.25fr .75fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.tracking-photo {
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius-md) 120px var(--radius-md) var(--radius-md);
+}
+
+
+/* --- Preguntas frecuentes: el gato bajo el texto de entrada --- */
+
+.faq-photo {
+    margin-top: 34px;
+    aspect-ratio: 1 / 1;
+    max-width: 320px;
+    border-radius: 120px var(--radius-md) var(--radius-md) var(--radius-md);
+}
+
+
+/* --- Sobre mí: la foto del jardín es apaisada, el marco se adapta --- */
+
+.about-image {
+    aspect-ratio: 4 / 3;
+    height: auto;
 }
 
 
 @media (max-width: 1100px) {
 
-    .gallery-grid {
-        column-count: 2;
-        column-gap: 14px;
+    .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 34px;
     }
 
-    .gallery-grid figure {
-        margin-bottom: 14px;
+    .intro-photo {
+        aspect-ratio: 16 / 10;
+        max-width: 560px;
+    }
+
+    .clinic-block,
+    .tracking-top {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .clinic-photo,
+    .tracking-photo {
+        aspect-ratio: 16 / 10;
+    }
+
+    .faq-photo {
+        max-width: 100%;
+        aspect-ratio: 16 / 10;
+    }
+
+    .about-image {
+        aspect-ratio: 16 / 10;
     }
 }
 
 
 @media (max-width: 700px) {
 
-    .gallery-grid {
-        column-count: 1;
+    .photo-band {
+        margin-top: 40px;
+        aspect-ratio: 4 / 3;
     }
 
-    .gallery-head {
-        margin-bottom: 38px;
+    .intro-photo,
+    .clinic-photo,
+    .tracking-photo,
+    .faq-photo,
+    .about-image {
+        aspect-ratio: 4 / 3;
     }
 }
