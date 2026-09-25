@@ -501,11 +501,11 @@ h4 {
     width: 100%;
 }
 
-/* Proporción exacta del recorte: la foto se ve siempre entera,
-   sin recortes laterales y sin nada superpuesto encima. */
+/* Proporción exacta de la foto: se ve entera, sin recortes
+   laterales y sin nada superpuesto encima. */
 .hero-image {
     display: block;
-    aspect-ratio: 712 / 298;
+    aspect-ratio: 1514 / 1039;
     border-radius: 20px;
     box-shadow: var(--shadow-md);
 }
