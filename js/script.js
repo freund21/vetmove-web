@@ -17,6 +17,41 @@
     onScroll();
 
 
+    /* ---------- "Leer más" de Sobre mí (solo en móvil) ---------- */
+
+    var extra = document.getElementById("about-extra");
+    var extraToggle = document.getElementById("about-toggle");
+    var movil = window.matchMedia("(max-width: 700px)");
+
+    function ajustarExtra() {
+        if (!extra || !extraToggle) return;
+        if (movil.matches) {
+            // Se pliega solo si el visitante no lo ha abierto ya
+            if (extraToggle.getAttribute("aria-expanded") !== "true") {
+                extra.hidden = true;
+            }
+        } else {
+            // En escritorio siempre visible: el texto completo
+            extra.hidden = false;
+        }
+    }
+
+    if (extra && extraToggle) {
+        extraToggle.addEventListener("click", function () {
+            var abierto = extra.hidden;
+            extra.hidden = !abierto;
+            extraToggle.setAttribute("aria-expanded", String(abierto));
+            extraToggle.textContent = abierto ? "Leer menos" : "Leer más";
+            if (!abierto) {
+                extraToggle.scrollIntoView({ block: "center", behavior: "smooth" });
+            }
+        });
+
+        ajustarExtra();
+        if (movil.addEventListener) movil.addEventListener("change", ajustarExtra);
+    }
+
+
     /* ---------- Menú móvil ---------- */
 
     var toggle = document.getElementById("menu-toggle");

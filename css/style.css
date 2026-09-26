@@ -2833,3 +2833,59 @@ h4 {
         row-gap: 14px;
     }
 }
+
+
+/* =========================================================
+   34. AJUSTES DE MÓVIL
+
+   Tres recortes para que la página no sea tan larga en el
+   teléfono. Ninguno afecta al escritorio.
+========================================================= */
+
+/* El botón de "Leer más" solo existe en móvil */
+.about-toggle {
+    display: none;
+    margin-top: 26px;
+    padding: 13px 26px;
+    border: 1.5px solid rgba(14, 123, 118, .35);
+    border-radius: 100px;
+    background: none;
+    color: var(--teal);
+    font-size: 14.5px;
+    font-weight: 600;
+    transition: border-color .3s var(--ease), color .3s var(--ease);
+}
+
+.about-toggle:hover {
+    border-color: var(--gold);
+    color: var(--gold-dark);
+}
+
+
+@media (max-width: 700px) {
+
+    /* 1. Las cinco tarjetas resumen sobran: los seis bloques de
+       detalle que vienen debajo cuentan los mismos servicios. */
+    .services-grid {
+        display: none;
+    }
+
+    /* 2. El relato largo de Sobre mí, tras un "Leer más" */
+    .about-toggle {
+        display: inline-block;
+    }
+
+    .about-extra[hidden] {
+        display: none;
+    }
+
+    /* 3. Menos aire entre secciones: 70px arriba y abajo por doce
+       secciones son casi 1700px solo de margen. */
+    .section {
+        padding: 46px 0;
+    }
+
+    .cta {
+        padding: 52px 0;
+    }
+}
