@@ -3347,3 +3347,57 @@ h4 {
         font-size: 12.5px;
     }
 }
+
+/* =========================================================
+   38. AJUSTES DEL PIE
+
+   El submenu sube por encima de la firma de Zalezigo, y el
+   enlace legal pasa al lado izquierdo junto al copyright: el
+   boton flotante de WhatsApp esta fijo a la ventana y tapaba
+   la esquina inferior derecha en pantallas de menos de unos
+   1400px, que es donde el contenedor llega mas a la derecha
+   que el propio boton.
+========================================================= */
+
+.footer-nav-wrap {
+    margin-top: 40px;
+    padding-top: 30px;
+    padding-bottom: 6px;
+}
+
+.footer-credit {
+    margin-top: 34px;
+}
+
+.footer-bottom {
+    justify-content: flex-start;
+    gap: 10px 26px;
+}
+
+.footer-bottom .footer-legal-links {
+    position: relative;
+    padding-left: 26px;
+}
+
+/* Separador entre el copyright y los enlaces legales */
+.footer-bottom .footer-legal-links::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 1px;
+    height: 14px;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, .22);
+}
+
+@media (max-width: 700px) {
+
+    .footer-bottom .footer-legal-links {
+        padding-left: 0;
+    }
+
+    .footer-bottom .footer-legal-links::before {
+        display: none;
+    }
+}
