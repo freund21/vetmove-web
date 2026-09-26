@@ -3281,3 +3281,69 @@ h4 {
         gap: 4px;
     }
 }
+
+
+/* =========================================================
+   37. LLAMAR Y WHATSAPP, SEPARADOS
+
+   En el pie, el icono de WhatsApp acompañaba a un enlace
+   tel:, así que prometía una cosa y hacía otra. Ahora son dos
+   accesos distintos, cada uno con su icono. Y la barra ofrece
+   las dos vías en vez de solo una.
+========================================================= */
+
+.nav-acciones {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.btn-llamar {
+    gap: 8px;
+    padding: 12px 20px;
+    border: 1.5px solid rgba(14, 123, 118, .35);
+    color: var(--teal);
+}
+
+.btn-llamar:hover {
+    border-color: var(--gold);
+    color: var(--gold-dark);
+}
+
+.btn-llamar svg,
+.btn-nav svg {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+}
+
+.btn-nav {
+    gap: 9px;
+    margin-left: 0;
+}
+
+
+@media (max-width: 1100px) {
+
+    .nav-acciones {
+        gap: 8px;
+    }
+
+    /* En pantallas estrechas el botón de llamar se queda en icono */
+    .btn-llamar span {
+        display: none;
+    }
+
+    .btn-llamar {
+        padding: 11px 13px;
+    }
+}
+
+
+@media (max-width: 380px) {
+
+    .btn-nav span {
+        font-size: 12.5px;
+    }
+}
