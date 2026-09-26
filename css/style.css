@@ -3401,3 +3401,178 @@ h4 {
         display: none;
     }
 }
+
+
+/* =========================================================
+   39. AVISO DE COOKIES
+
+   Aceptar y rechazar tienen el mismo peso visual, como exige
+   la guía de la AEPD: no vale esconder el rechazo.
+========================================================= */
+
+.cookies {
+    position: fixed;
+    left: 22px;
+    right: 22px;
+    bottom: 22px;
+    z-index: 1500;
+    display: flex;
+    align-items: center;
+    gap: 26px 34px;
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 24px 28px;
+    border-radius: var(--radius-md);
+    background: var(--white);
+    border: 1px solid rgba(14, 123, 118, .16);
+    box-shadow: 0 20px 60px rgba(6, 60, 58, .22);
+}
+
+.cookies-texto strong {
+    display: block;
+    font-family: "Jost", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--teal-deep);
+}
+
+.cookies-texto p {
+    margin-top: 6px;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--muted);
+}
+
+.cookies-texto a {
+    color: var(--teal);
+    font-weight: 600;
+    border-bottom: 1px solid var(--gold);
+}
+
+.cookies-texto a:hover {
+    color: var(--gold-dark);
+}
+
+.cookies-botones {
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.cookies-botones .btn {
+    padding: 12px 24px;
+    font-size: 14px;
+}
+
+
+@media (max-width: 700px) {
+
+    .cookies {
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 18px;
+        padding: 20px 22px;
+    }
+
+    .cookies-botones .btn {
+        flex: 1;
+    }
+
+    /* El botón flotante de WhatsApp se aparta mientras el aviso está
+       en pantalla, para no pisarse con él */
+    .cookies:not([hidden]) ~ .whatsapp {
+        bottom: 210px;
+    }
+}
+
+/* =========================================================
+   40. TABLAS Y LISTAS DE LAS PAGINAS LEGALES
+========================================================= */
+
+.tabla-cookies {
+    margin-top: 24px;
+    overflow-x: auto;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(14, 123, 118, .16);
+}
+
+.tabla-cookies table {
+    width: 100%;
+    min-width: 520px;
+    border-collapse: collapse;
+    background: var(--white);
+}
+
+.tabla-cookies th,
+.tabla-cookies td {
+    padding: 14px 18px;
+    text-align: left;
+    font-size: 14.5px;
+    border-bottom: 1px solid rgba(14, 123, 118, .12);
+    vertical-align: top;
+}
+
+.tabla-cookies th {
+    background: var(--teal-mist);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .4px;
+    text-transform: uppercase;
+    color: var(--teal);
+}
+
+.tabla-cookies td {
+    color: var(--muted);
+}
+
+.tabla-cookies tr:last-child td {
+    border-bottom: 0;
+}
+
+.tabla-cookies code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 13px;
+    color: var(--teal-deep);
+    background: var(--teal-mist);
+    padding: 2px 7px;
+    border-radius: 5px;
+}
+
+.legal-lista {
+    display: grid;
+    gap: 9px;
+    margin-top: 18px;
+}
+
+.legal-lista li {
+    position: relative;
+    padding-left: 26px;
+    color: var(--muted);
+}
+
+.legal-lista li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .55em;
+    width: 11px;
+    height: 6px;
+    border-left: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+    transform: rotate(-45deg);
+}
+
+.legal h3 {
+    margin-top: 34px;
+    font-family: "Jost", sans-serif;
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--ink);
+}
+
+.legal .btn {
+    margin-top: 6px;
+}
