@@ -24,7 +24,7 @@
     <meta property="og:image" content="https://vetmove.es/img/mascotas-fundadora.jpg">
     <meta name="twitter:card" content="summary_large_image">
 
-    <link rel="icon" href="img/logo-vetmove-emblema.png" type="image/png">    <link rel="stylesheet" href="css/style.css?v=60">
+    <link rel="icon" href="img/logo-vetmove-emblema.png" type="image/png">    <link rel="stylesheet" href="css/style.css?v=61">
 </head>
 
 <body>
@@ -1727,11 +1727,42 @@
             <span>© 2026 VetMove. Todos los derechos reservados.</span>
             <nav class="footer-legal-links" aria-label="Información legal">
                 <a href="aviso-legal.html">Aviso legal</a>
+                <a href="privacidad.html">Privacidad</a>
+                <a href="cookies.html">Cookies</a>
             </nav>
         </div>
 
     </footer>
 
+
+
+    <!-- ==================== CONSENTIMIENTO DE COOKIES ==================== -->
+    <!-- Solo aparece si en js/script.js hay un ID de Analytics configurado.
+         Mientras esté vacío, la web no instala ninguna cookie. -->
+    <div class="cookies" id="cookies" role="dialog" aria-live="polite"
+        aria-label="Aviso de cookies" hidden>
+
+        <div class="cookies-texto">
+            <strong>Cookies</strong>
+            <p>
+                Usamos cookies de Google Analytics para saber cuánta gente
+                visita la web y qué secciones consulta. No sirven para
+                identificarte ni para publicidad, y solo se instalan si
+                las aceptas.
+                <a href="cookies.html">Más información</a>.
+            </p>
+        </div>
+
+        <div class="cookies-botones">
+            <button type="button" class="btn btn-secondary" id="cookies-rechazar">
+                Rechazar
+            </button>
+            <button type="button" class="btn btn-primary" id="cookies-aceptar">
+                Aceptar
+            </button>
+        </div>
+
+    </div>
 
     <!-- ==================== ACCIONES FLOTANTES ==================== -->
     <a href="https://wa.me/34620739734" class="whatsapp"
@@ -1779,7 +1810,7 @@
     }
     </script>
 
-    <script src="js/script.js?v=60"></script>
+    <script src="js/script.js?v=61"></script>
 
 </body>
 

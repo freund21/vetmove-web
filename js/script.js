@@ -5,6 +5,84 @@
 (function () {
     "use strict";
 
+
+    /* =========================================================
+       CONSENTIMIENTO DE COOKIES Y GOOGLE ANALYTICS
+
+       Pega aquí el ID de medición de Analytics, con formato
+       G-XXXXXXXXXX. Mientras esté vacío no se carga Analytics,
+       no se instala ninguna cookie y el aviso no aparece.
+    ========================================================= */
+
+    var ID_ANALYTICS = "";
+
+    var CLAVE = "vetmove-cookies";
+    var aviso = document.getElementById("cookies");
+
+    function decision() {
+        try { return localStorage.getItem(CLAVE); } catch (e) { return null; }
+    }
+
+    function guardar(valor) {
+        try { localStorage.setItem(CLAVE, valor); } catch (e) { /* modo privado */ }
+    }
+
+    function cargarAnalytics() {
+        if (!ID_ANALYTICS) return;
+        if (window.gtagCargado) return;
+        window.gtagCargado = true;
+
+        var s = document.createElement("script");
+        s.async = true;
+        s.src = "https://www.googletagmanager.com/gtag/js?id=" + ID_ANALYTICS;
+        document.head.appendChild(s);
+
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.gtag("js", new Date());
+        window.gtag("config", ID_ANALYTICS, { anonymize_ip: true });
+    }
+
+    function cerrarAviso() {
+        if (aviso) aviso.hidden = true;
+    }
+
+    if (aviso) {
+        var previa = decision();
+
+        if (!ID_ANALYTICS) {
+            // Sin Analytics configurado no hay cookies que consentir
+            aviso.hidden = true;
+        } else if (previa === "si") {
+            cargarAnalytics();
+        } else if (previa === "no") {
+            aviso.hidden = true;
+        } else {
+            aviso.hidden = false;
+        }
+
+        var btnSi = document.getElementById("cookies-aceptar");
+        var btnNo = document.getElementById("cookies-rechazar");
+
+        if (btnSi) btnSi.addEventListener("click", function () {
+            guardar("si");
+            cerrarAviso();
+            cargarAnalytics();
+        });
+
+        if (btnNo) btnNo.addEventListener("click", function () {
+            guardar("no");
+            cerrarAviso();
+        });
+    }
+
+    // Permite volver a decidir desde la política de cookies
+    window.vetmoveReabrirCookies = function () {
+        try { localStorage.removeItem(CLAVE); } catch (e) { }
+        if (aviso && ID_ANALYTICS) aviso.hidden = false;
+    };
+
+
     /* ---------- Header con fondo al hacer scroll ---------- */
 
     var header = document.getElementById("header");
