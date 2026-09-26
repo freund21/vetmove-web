@@ -2800,3 +2800,36 @@ h4 {
         grid-template-columns: 1fr;
     }
 }
+
+/* =========================================================
+   33. CAJAS A LA MEDIDA DE SU CONTENIDO
+
+   Las tarjetas de servicio pedían 350px de alto mínimo y los
+   pasos 250, así que con textos cortos quedaba mucho hueco
+   vacío debajo. Cada caja pasa a medir lo que ocupa.
+========================================================= */
+
+.service-card {
+    min-height: 0;
+    padding: 26px 24px;
+}
+
+.service-card h3 {
+    margin-top: 16px;
+}
+
+.process-item {
+    min-height: 0;
+    padding: 30px 26px;
+}
+
+/* La tarjeta destacada, en pantallas medianas y móvil, a una sola
+   columna: con dos, el párrafo caía en la columna estrecha y el
+   titular quedaba descolgado a la derecha. */
+@media (max-width: 1100px) {
+
+    .service-card.featured {
+        grid-template-columns: 1fr;
+        row-gap: 14px;
+    }
+}
