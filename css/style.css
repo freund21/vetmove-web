@@ -3576,3 +3576,180 @@ h4 {
 .legal .btn {
     margin-top: 6px;
 }
+
+
+/* =========================================================
+   41. ACOMPAÑAMIENTO FINAL
+
+   Tono deliberadamente sobrio: sin foto, sin dorados y sin
+   llamadas a la acción llamativas. Es el asunto más delicado
+   de la web y no debe competir con el resto.
+========================================================= */
+
+.despedida {
+    background: var(--cream-light);
+}
+
+.despedida-caja {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 48px 52px;
+    border-radius: var(--radius-md);
+    background: var(--teal-mist);
+    border: 1px solid rgba(14, 123, 118, .14);
+}
+
+.despedida-cabecera {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 26px;
+    align-items: center;
+}
+
+.despedida-icono {
+    display: grid;
+    place-items: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: var(--teal-soft);
+    color: var(--teal);
+}
+
+.despedida-icono svg {
+    width: 38px;
+    height: 38px;
+}
+
+.despedida-cabecera h2 {
+    font-family: "Jost", sans-serif;
+    font-size: clamp(26px, 3.2vw, 38px);
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -.8px;
+    color: var(--teal-deep);
+}
+
+.despedida-lema {
+    margin-top: 8px;
+    font-family: "Jost", sans-serif;
+    font-size: clamp(17px, 2vw, 21px);
+    font-weight: 400;
+    color: var(--teal);
+}
+
+.despedida-texto {
+    margin-top: 30px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(14, 123, 118, .16);
+}
+
+.despedida-texto p {
+    max-width: 64ch;
+    color: var(--muted);
+    line-height: 1.75;
+}
+
+.despedida-texto p + p {
+    margin-top: 16px;
+}
+
+.despedida-texto strong {
+    color: var(--ink);
+    font-weight: 600;
+}
+
+.despedida-nota {
+    margin-top: 24px !important;
+    padding-left: 18px;
+    border-left: 3px solid var(--teal);
+    font-style: italic;
+}
+
+
+@media (max-width: 700px) {
+
+    .despedida-caja {
+        padding: 30px 24px;
+    }
+
+    .despedida-cabecera {
+        grid-template-columns: 56px 1fr;
+        gap: 18px;
+    }
+
+    .despedida-icono {
+        width: 56px;
+        height: 56px;
+    }
+
+    .despedida-icono svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .despedida-texto {
+        margin-top: 24px;
+        padding-top: 22px;
+    }
+}
+
+
+/* =========================================================
+   42. FOTOS MÁS PEQUEÑAS EN MÓVIL
+
+   Las verticales llegaban a 527px de alto sobre una pantalla
+   de 844: media pantalla para una sola foto. Se acotan y se
+   centran.
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .section-photo,
+    .home-care-image,
+    .about-image {
+        max-width: 270px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .faq-photo {
+        max-width: 240px;
+    }
+
+    .cta-photo {
+        max-width: 260px;
+    }
+
+    /* La portada es a sangre: se recorta en alto, no en ancho */
+    .hero-figure {
+        aspect-ratio: 3 / 2;
+        max-width: none;
+    }
+}
+
+
+/* =========================================================
+   43. EL NÚMERO DE TELÉFONO NO SE PARTE
+
+   En tabletas el botón rompía "+34 620 739 / 734" en dos
+   líneas.
+========================================================= */
+
+.btn-llamar,
+.btn-nav {
+    white-space: nowrap;
+}
+
+/* Entre 1100 y 1220px la barra iba justa con el numero completo:
+   el boton se queda en icono tambien en ese tramo. */
+@media (max-width: 1220px) {
+
+    .btn-llamar span {
+        display: none;
+    }
+
+    .btn-llamar {
+        padding: 11px 13px;
+    }
+}
