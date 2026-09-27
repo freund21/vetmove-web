@@ -3865,3 +3865,26 @@ h4 {
         opacity: .22;
     }
 }
+
+/* Corazon mas pequeno, en los tres tamanos */
+.despedida-corazon {
+    width: 132px;
+    right: 44px;
+    bottom: 32px;
+}
+
+@media (max-width: 1100px) {
+
+    .despedida-corazon {
+        width: 98px;
+        margin-top: 26px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .despedida-corazon {
+        width: 84px;
+        margin-top: 22px;
+    }
+}
