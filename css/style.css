@@ -171,7 +171,6 @@
 }
 
 
-
 /* =========================================================
    1. VARIABLES — los dos colores de marca VetMove
 ========================================================= */
@@ -1461,9 +1460,6 @@ h4 {
     transform: scale(1.08);
     background: var(--gold);
 }
-
-
-
 
 
 /* =========================================================
@@ -3755,20 +3751,6 @@ h4 {
     overflow: hidden;
 }
 
-.despedida-corazon {
-    position: absolute;
-    right: 42px;
-    bottom: 34px;
-    width: 128px;
-    color: var(--teal-soft);
-    opacity: .75;
-    pointer-events: none;
-}
-
-.despedida-corazon svg {
-    width: 100%;
-    height: auto;
-}
 
 /* El texto no pasa por debajo del corazón */
 .despedida-texto p {
@@ -3778,113 +3760,8 @@ h4 {
 }
 
 
-@media (max-width: 700px) {
-
-    .despedida-corazon {
-        right: 16px;
-        bottom: 16px;
-        width: 76px;
-        opacity: .55;
-    }
-}
-
-/* El corazon pasa a llevar dentro la foto del westy, mas grande.
-   La foto ya es en blanco y negro, asi que no compite con el color
-   de la seccion. */
-.despedida-corazon {
-    right: 38px;
-    bottom: 26px;
-    width: 190px;
-    opacity: .55;
-}
-
-.despedida-corazon svg {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-@media (max-width: 700px) {
-
-    .despedida-corazon {
-        right: 12px;
-        bottom: 12px;
-        width: 110px;
-        opacity: .42;
-    }
-}
-
 /* En tabletas y moviles el corazon pisaba el texto, porque la caja
    es mas estrecha. Ahi sale del rincon y pasa a cerrar la seccion,
    centrado debajo del texto. */
-@media (max-width: 1100px) {
 
-    .despedida-corazon {
-        position: static;
-        display: block;
-        width: 132px;
-        margin: 30px auto 0;
-        opacity: .6;
-    }
-}
 
-@media (max-width: 700px) {
-
-    .despedida-corazon {
-        width: 112px;
-        margin-top: 26px;
-        opacity: .6;
-    }
-}
-
-/* Marca de agua, no ilustracion: la foto va en duotonia verde y muy
-   tenue. En un apartado como este, cuanto menos reclame, mejor. */
-.despedida-corazon {
-    opacity: .34;
-    color: var(--teal);
-}
-
-@media (max-width: 1100px) {
-
-    .despedida-corazon {
-        opacity: .32;
-    }
-}
-
-/* Menos corazon: baja la intensidad y se difumina el borde, para que
-   la forma no tenga un canto duro y se disuelva en el fondo. */
-.despedida-corazon {
-    opacity: .22;
-    -webkit-mask-image: radial-gradient(75% 75% at 50% 45%, #000 45%, rgba(0,0,0,.35) 75%, transparent 100%);
-    mask-image: radial-gradient(75% 75% at 50% 45%, #000 45%, rgba(0,0,0,.35) 75%, transparent 100%);
-}
-
-@media (max-width: 1100px) {
-
-    .despedida-corazon {
-        opacity: .22;
-    }
-}
-
-/* Corazon mas pequeno, en los tres tamanos */
-.despedida-corazon {
-    width: 132px;
-    right: 44px;
-    bottom: 32px;
-}
-
-@media (max-width: 1100px) {
-
-    .despedida-corazon {
-        width: 98px;
-        margin-top: 26px;
-    }
-}
-
-@media (max-width: 700px) {
-
-    .despedida-corazon {
-        width: 84px;
-        margin-top: 22px;
-    }
-}
