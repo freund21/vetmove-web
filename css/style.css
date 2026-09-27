@@ -3836,3 +3836,17 @@ h4 {
         opacity: .6;
     }
 }
+
+/* Marca de agua, no ilustracion: la foto va en duotonia verde y muy
+   tenue. En un apartado como este, cuanto menos reclame, mejor. */
+.despedida-corazon {
+    opacity: .34;
+    color: var(--teal);
+}
+
+@media (max-width: 1100px) {
+
+    .despedida-corazon {
+        opacity: .32;
+    }
+}
