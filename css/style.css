@@ -3787,3 +3787,52 @@ h4 {
         opacity: .55;
     }
 }
+
+/* El corazon pasa a llevar dentro la foto del westy, mas grande.
+   La foto ya es en blanco y negro, asi que no compite con el color
+   de la seccion. */
+.despedida-corazon {
+    right: 38px;
+    bottom: 26px;
+    width: 190px;
+    opacity: .55;
+}
+
+.despedida-corazon svg {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 700px) {
+
+    .despedida-corazon {
+        right: 12px;
+        bottom: 12px;
+        width: 110px;
+        opacity: .42;
+    }
+}
+
+/* En tabletas y moviles el corazon pisaba el texto, porque la caja
+   es mas estrecha. Ahi sale del rincon y pasa a cerrar la seccion,
+   centrado debajo del texto. */
+@media (max-width: 1100px) {
+
+    .despedida-corazon {
+        position: static;
+        display: block;
+        width: 132px;
+        margin: 30px auto 0;
+        opacity: .6;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .despedida-corazon {
+        width: 112px;
+        margin-top: 26px;
+        opacity: .6;
+    }
+}
