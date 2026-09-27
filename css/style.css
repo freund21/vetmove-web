@@ -3741,15 +3741,3 @@ h4 {
     white-space: nowrap;
 }
 
-/* Entre 1100 y 1220px la barra iba justa con el numero completo:
-   el boton se queda en icono tambien en ese tramo. */
-@media (max-width: 1220px) {
-
-    .btn-llamar span {
-        display: none;
-    }
-
-    .btn-llamar {
-        padding: 11px 13px;
-    }
-}
