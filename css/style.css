@@ -3850,3 +3850,18 @@ h4 {
         opacity: .32;
     }
 }
+
+/* Menos corazon: baja la intensidad y se difumina el borde, para que
+   la forma no tenga un canto duro y se disuelva en el fondo. */
+.despedida-corazon {
+    opacity: .22;
+    -webkit-mask-image: radial-gradient(75% 75% at 50% 45%, #000 45%, rgba(0,0,0,.35) 75%, transparent 100%);
+    mask-image: radial-gradient(75% 75% at 50% 45%, #000 45%, rgba(0,0,0,.35) 75%, transparent 100%);
+}
+
+@media (max-width: 1100px) {
+
+    .despedida-corazon {
+        opacity: .22;
+    }
+}
