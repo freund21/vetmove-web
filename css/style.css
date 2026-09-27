@@ -3741,3 +3741,49 @@ h4 {
     white-space: nowrap;
 }
 
+
+/* =========================================================
+   44. EUTANASIA: EL CORAZÓN DEL DISEÑO
+
+   El diseño llevaba un corazón dibujado al fondo. Va en el
+   verde suave de la marca, no en el del boceto, y muy tenue:
+   es un guiño, no un adorno que reclame atención.
+========================================================= */
+
+.despedida-caja {
+    position: relative;
+    overflow: hidden;
+}
+
+.despedida-corazon {
+    position: absolute;
+    right: 42px;
+    bottom: 34px;
+    width: 128px;
+    color: var(--teal-soft);
+    opacity: .75;
+    pointer-events: none;
+}
+
+.despedida-corazon svg {
+    width: 100%;
+    height: auto;
+}
+
+/* El texto no pasa por debajo del corazón */
+.despedida-texto p {
+    position: relative;
+    z-index: 1;
+    max-width: 58ch;
+}
+
+
+@media (max-width: 700px) {
+
+    .despedida-corazon {
+        right: 16px;
+        bottom: 16px;
+        width: 76px;
+        opacity: .55;
+    }
+}
