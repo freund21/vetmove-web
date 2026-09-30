@@ -1,0 +1,16 @@
+# VetMove — veterinaria a domicilio en Ponferrada, El Bierzo y zonas limítrofes
+
+User-agent: *
+Allow: /
+
+# Material de trabajo: fotos originales sin procesar y scripts usados
+# para generarlas. No forma parte de la web, así que no interesa que
+# se indexe.
+Disallow: /originales/
+
+# Las páginas de aviso legal, privacidad y cookies NO se bloquean aquí
+# a propósito: ya llevan <meta name="robots" content="noindex">, y para
+# que Google lea esa etiqueta primero tiene que poder entrar. Bloquearlas
+# aquí conseguiría lo contrario de lo que se busca.
+
+Sitemap: https://vetmove.es/sitemap.xml

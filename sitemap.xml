@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <!--
+        VetMove — mapa del sitio
+
+        Solo se lista la portada. Es la única página indexable: las de
+        aviso legal, privacidad y cookies llevan <meta name="robots"
+        content="noindex">, así que incluirlas aquí sería pedirle a
+        Google lo contrario de lo que dicen ellas mismas.
+
+        Las secciones de la web (servicios, a domicilio, sobre mí…) son
+        anclas dentro de la portada, no páginas independientes, y un
+        sitemap lista páginas.
+    -->
+
+    <url>
+        <loc>https://vetmove.es/</loc>
+        <lastmod>2026-09-27</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+</urlset>
