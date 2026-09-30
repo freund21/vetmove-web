@@ -3291,6 +3291,15 @@ h4 {
    la guía de la AEPD: no vale esconder el rechazo.
 ========================================================= */
 
+/* El aviso se oculta y se muestra con el atributo [hidden] desde el JS.
+   Hace falta esta regla porque el `display: flex` de abajo es más
+   específico que el `display: none` que el navegador aplica por defecto
+   a [hidden]: sin ella, el aviso se queda en pantalla para siempre
+   aunque el JS lo dé por cerrado. */
+.cookies[hidden] {
+    display: none;
+}
+
 .cookies {
     position: fixed;
     left: 22px;
