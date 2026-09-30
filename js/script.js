@@ -9,13 +9,13 @@
     /* =========================================================
        CONSENTIMIENTO DE COOKIES Y GOOGLE ANALYTICS
 
-       Pega aquí el ID de medición de Analytics, con formato
-       G-XXXXXXXXXX. Mientras esté vacío no se carga Analytics,
-       no se instala ninguna cookie y el aviso no aparece, así que
-       la web sigue siendo publicable tal cual.
+       Analytics NO se carga al entrar. El script de Google solo se
+       inserta cuando la visita pulsa "Aceptar", y su decisión se
+       recuerda para no volver a preguntar. Si se deja este ID vacío,
+       la web se queda sin medición, sin cookies y sin aviso.
     ========================================================= */
 
-    var ID_ANALYTICS = "";
+    var ID_ANALYTICS = "G-337DCYBG81";
 
     var CLAVE = "vetmove-cookies";
     var aviso = document.getElementById("cookies");
