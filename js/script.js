@@ -7,80 +7,16 @@
 
 
     /* =========================================================
-       CONSENTIMIENTO DE COOKIES Y GOOGLE ANALYTICS
+       SIN COOKIES NI ANALÍTICA
 
-       Pega aquí el ID de medición de Analytics, con formato
-       G-XXXXXXXXXX. Mientras esté vacío no se carga Analytics,
-       no se instala ninguna cookie y el aviso no aparece.
+       Esta web no instala ninguna cookie, no guarda nada en el
+       navegador y no contacta con ningún servidor ajeno: las
+       tipografías y las imágenes se sirven desde aquí mismo.
+
+       Por eso no hay aviso de cookies que mostrar ni consentimiento
+       que pedir. Si algún día se añade analítica, habrá que volver
+       a poner el aviso y la política de cookies que lo explique.
     ========================================================= */
-
-    var ID_ANALYTICS = "";
-
-    var CLAVE = "vetmove-cookies";
-    var aviso = document.getElementById("cookies");
-
-    function decision() {
-        try { return localStorage.getItem(CLAVE); } catch (e) { return null; }
-    }
-
-    function guardar(valor) {
-        try { localStorage.setItem(CLAVE, valor); } catch (e) { /* modo privado */ }
-    }
-
-    function cargarAnalytics() {
-        if (!ID_ANALYTICS) return;
-        if (window.gtagCargado) return;
-        window.gtagCargado = true;
-
-        var s = document.createElement("script");
-        s.async = true;
-        s.src = "https://www.googletagmanager.com/gtag/js?id=" + ID_ANALYTICS;
-        document.head.appendChild(s);
-
-        window.dataLayer = window.dataLayer || [];
-        window.gtag = function () { window.dataLayer.push(arguments); };
-        window.gtag("js", new Date());
-        window.gtag("config", ID_ANALYTICS, { anonymize_ip: true });
-    }
-
-    function cerrarAviso() {
-        if (aviso) aviso.hidden = true;
-    }
-
-    if (aviso) {
-        var previa = decision();
-
-        if (!ID_ANALYTICS) {
-            // Sin Analytics configurado no hay cookies que consentir
-            aviso.hidden = true;
-        } else if (previa === "si") {
-            cargarAnalytics();
-        } else if (previa === "no") {
-            aviso.hidden = true;
-        } else {
-            aviso.hidden = false;
-        }
-
-        var btnSi = document.getElementById("cookies-aceptar");
-        var btnNo = document.getElementById("cookies-rechazar");
-
-        if (btnSi) btnSi.addEventListener("click", function () {
-            guardar("si");
-            cerrarAviso();
-            cargarAnalytics();
-        });
-
-        if (btnNo) btnNo.addEventListener("click", function () {
-            guardar("no");
-            cerrarAviso();
-        });
-    }
-
-    // Permite volver a decidir desde la política de cookies
-    window.vetmoveReabrirCookies = function () {
-        try { localStorage.removeItem(CLAVE); } catch (e) { }
-        if (aviso && ID_ANALYTICS) aviso.hidden = false;
-    };
 
 
     /* ---------- Header con fondo al hacer scroll ---------- */
@@ -91,8 +27,10 @@
         header.classList.toggle("scrolled", window.scrollY > 40);
     }
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+    if (header) {
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+    }
 
 
     /* ---------- "Leer más" de Sobre mí (solo en móvil) ---------- */
@@ -130,7 +68,12 @@
     }
 
 
-    /* ---------- Menú móvil ---------- */
+    /* ---------- Menú móvil ----------
+
+       Las páginas legales y la 404 llevan una cabecera simplificada,
+       sin menú. Por eso todo este bloque va dentro de un if: sin él,
+       el script se rompía en esas páginas y dejaba de ejecutarse todo
+       lo que viene después, incluidas las animaciones de entrada.     */
 
     var toggle = document.getElementById("menu-toggle");
     var menu = document.getElementById("nav-menu");
@@ -142,45 +85,48 @@
         toggle.setAttribute("aria-label", "Abrir menú");
     }
 
-    toggle.addEventListener("click", function () {
-        var open = menu.classList.toggle("open");
-        toggle.classList.toggle("open", open);
-        toggle.setAttribute("aria-expanded", String(open));
-        toggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
-    });
+    if (toggle && menu) {
 
-    menu.addEventListener("click", function (e) {
-        if (e.target.tagName === "A") closeMenu();
-    });
+        toggle.addEventListener("click", function () {
+            var open = menu.classList.toggle("open");
+            toggle.classList.toggle("open", open);
+            toggle.setAttribute("aria-expanded", String(open));
+            toggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+        });
 
-    document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape") closeMenu();
-    });
+        menu.addEventListener("click", function (e) {
+            if (e.target.tagName === "A") closeMenu();
+        });
+
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape") closeMenu();
+        });
 
 
-    /* ---------- Marcar en el menú la sección visible ---------- */
+        /* ---------- Marcar en el menú la sección visible ---------- */
 
-    var links = Array.prototype.slice.call(menu.querySelectorAll('a[href^="#"]'));
-    var sections = links
-        .map(function (a) { return document.querySelector(a.getAttribute("href")); })
-        .filter(Boolean);
+        var links = Array.prototype.slice.call(menu.querySelectorAll('a[href^="#"]'));
+        var sections = links
+            .map(function (a) { return document.querySelector(a.getAttribute("href")); })
+            .filter(Boolean);
 
-    if ("IntersectionObserver" in window && sections.length) {
+        if ("IntersectionObserver" in window && sections.length) {
 
-        var navObserver = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (!entry.isIntersecting) return;
+            var navObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
 
-                links.forEach(function (a) {
-                    a.classList.toggle(
-                        "active",
-                        a.getAttribute("href") === "#" + entry.target.id
-                    );
+                    links.forEach(function (a) {
+                        a.classList.toggle(
+                            "active",
+                            a.getAttribute("href") === "#" + entry.target.id
+                        );
+                    });
                 });
-            });
-        }, { rootMargin: "-45% 0px -50% 0px" });
+            }, { rootMargin: "-45% 0px -50% 0px" });
 
-        sections.forEach(function (s) { navObserver.observe(s); });
+            sections.forEach(function (s) { navObserver.observe(s); });
+        }
     }
 
 
