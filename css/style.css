@@ -3659,3 +3659,86 @@ h4 {
    centrado debajo del texto. */
 
 
+
+
+/* =========================================================
+   45. COMPROMISO CON LOS ANIMALES
+
+   Va entre el bloque de seguimiento, que es verde oscuro, y
+   "Sobre mí", que es blanco. El crema la separa de los dos sin
+   romper la sucesión de colores de la página.
+========================================================= */
+
+.compromiso {
+    background: var(--cream);
+}
+
+.compromiso-content {
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.compromiso h2 {
+    font-size: clamp(30px, 3.6vw, 48px);
+    line-height: 1.12;
+    letter-spacing: -1px;
+}
+
+.compromiso h2 span {
+    display: block;
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 300;
+}
+
+.compromiso p {
+    margin-top: 22px;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.75;
+}
+
+.compromiso strong {
+    color: var(--ink);
+    font-weight: 600;
+}
+
+/* El cierre: la frase que resume por qué esto le importa a quien
+   está leyendo, con la huella de la marca encima. */
+
+.compromiso-cierre {
+    margin-top: 46px;
+    padding: 34px 38px;
+    background: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+}
+
+.compromiso-paw {
+    display: block;
+    width: 34px;
+    margin: 0 auto 14px;
+}
+
+.compromiso-paw svg {
+    width: 100%;
+    height: auto;
+    fill: var(--gold);
+}
+
+.compromiso-cierre p {
+    margin-top: 0;
+}
+
+@media (max-width: 700px) {
+
+    .compromiso-cierre {
+        margin-top: 34px;
+        padding: 26px 22px;
+    }
+
+    .compromiso p {
+        font-size: 16px;
+    }
+}
